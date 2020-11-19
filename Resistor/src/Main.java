@@ -1,4 +1,3 @@
-import jdk.nashorn.api.tree.ForInLoopTree;
 
 public class Main {
 	
@@ -11,14 +10,17 @@ public class Main {
 		MEGA(6, "M"),
 		GIGA(9, "G");
 		
-		private int exponent; //for example milli should have exponent = -3
-		private String symbol; //for example milli should have "m"
+		// attributes
+		private int exponent;
+		private String symbol;
 		
+		// constructors
 		private Prefix(int exponent, String symbol) {
 			this.symbol = symbol;
 			this.exponent = exponent;
 		}
 		
+		// methods
 		public int getExponent() {
 			return exponent;
 		}
@@ -28,18 +30,12 @@ public class Main {
 		}
 		
 		public String toString() {
-			
-			return "der prefix " + this.name() + " hat expo " + Integer.toString(this.exponent) + " und sym " + this.symbol;
-			
-			// return ;
-			// der prefix nano hat den expo -9 und sym n
-			//
+			if (this.exponent == 0) return "der prefix " + this.name() + " hat den exponenten " + Integer.toString(this.exponent) + " und kein symbol.";
+			else return "der prefix " + this.name() + " hat den exponenten " + Integer.toString(this.exponent) + " und symbol " + this.symbol + ".";
 		} // "" in case of "none"
-	}// normalerweise alle inhalte in enums ALLES CAPS schreiben
-	
+	}// normalerweise alle inhalte in enums groﬂ schreiben
 		
 	public static void main(String[] args) {
-		
-		System.out.println(Prefix.NONE);
+		System.out.println(Prefix.MIKRO);
 	}
 }
